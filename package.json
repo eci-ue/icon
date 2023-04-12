@@ -1,7 +1,7 @@
 {
   "name": "@ue/icon",
   "private": false,
-  "version": "0.1.1",
+  "version": "0.1.2",
   "type": "module",
   "types": "types/index.d.ts",
   "license": "MIT",
@@ -21,10 +21,10 @@
     "url": "git+https://github.com/eci-ue/icon.git"
   },
   "dependencies": {
-    "@fengqiaogang/safe-get": "^0.1.4"
+    "@fengqiaogang/safe-get": "^0.1.4",
+    "@ant-design/icons-vue": "^6.1.0"
   },
   "devDependencies": {
-    "@ant-design/icons-vue": "^6.1.0",
     "@types/lodash-es": "^4.17.6",
     "@types/node": "^18.8.4",
     "@vitejs/plugin-vue": "^4.0.0",

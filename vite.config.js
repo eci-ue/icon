@@ -27,10 +27,11 @@ export default defineConfig({
     rollupOptions: {
       external: [
         /^lodash/i,
-        /vue/i,
+        /^vue/i,
         /^@ue/i,
-        /ant-design-vue/i,
+        /@ant-design/i,
         /@fengqiaogang/i,
+        /ant-design-vue/i,
       ],
       output: {
         inlineDynamicImports: true
