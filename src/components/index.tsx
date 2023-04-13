@@ -11,7 +11,7 @@ import * as icons from "@ant-design/icons-vue";
 import { DefineComponent, defineComponent, h as createElement, PropType } from "vue";
 
 import type { Props } from "./props";
-import type { Component, CSSProperties } from "vue";
+import type { Component, CSSProperties, VNode } from "vue";
 
 const expand = function(props: Props) {
   let value: Component | boolean = false;
@@ -35,10 +35,7 @@ const create = function(name: string) {
     "fill": "currentColor",
     "overflow": "hidden",
   };
-  const svgStyle: CSSProperties = {
-    width: "1rem", 
-    height: "1rem",
-  };
+  const svgStyle: CSSProperties = { width: "1em", height: "1em" };
   return (<span class="icon-font">
     <i style={ iconFontStyle }>
       <svg aria-hidden="true" style={ svgStyle }>
@@ -109,7 +106,7 @@ export default defineComponent({
           _.set(style, "fontSize", value);
         }
       }
-      return createElement(content, { style, "class": className }, slots);
+      return createElement(content as VNode, { style, "class": className }, slots);
     }
   }
 });
