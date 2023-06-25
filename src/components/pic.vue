@@ -11,8 +11,8 @@ defineProps({
   },
 });
 const countryPic = function(value: string | number) {
-  const name = String(value).replace(/^(pic-{0,})?(\d+)(\.[a-z]+)?$/ig, "$2");
-  const path = "https://crm.eciol.com/assets/images/country";
+  const name = String(value).trim().replace(/^(pic-{0,})?(\d+)(\.[a-z]+)?$/ig, "$2");
+  const path = "https://static.eciol.com/image/country";
   if (/\.[a-z]+$/i.test(name)) {
     return `${path}/${name}`;
   }
