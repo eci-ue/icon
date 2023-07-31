@@ -30,8 +30,6 @@ export default defineConfig({
         /^vue/i,
         /^@ue/i,
         /@ant-design/i,
-        /@fengqiaogang/i,
-        /ant-design-vue/i,
       ],
       output: {
         inlineDynamicImports: true

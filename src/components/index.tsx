@@ -4,9 +4,9 @@
  * @description 组合 IconFont & Ant Design Icon 图标
  */
 
-import * as _ from "lodash-es";
+import Pic from "./pic";
+import * as _ from "./util";
 import { IconExpand } from "./expand";
-import safeGet from "@fengqiaogang/safe-get";
 import * as icons from "@ant-design/icons-vue";
 import { DefineComponent, defineComponent, h as createElement, PropType } from "vue";
 
@@ -46,7 +46,7 @@ const create = function(name: string) {
 };
 
 export default defineComponent({
-  name: "EciIcon",
+  name: "Icon",
   props: {
     type: {
       required: true,
@@ -65,18 +65,24 @@ export default defineComponent({
       default: ""
     },
   },
-  setup(props: Props, { slots }) {
+  setup(props: Props) {
     let isExpand: boolean = false;
     const icon = function(name: string | DefineComponent) {
-      if (_.isString(name)) {
+      if (typeof name === "string") {
         const expandValue = expand(props);
         if (expandValue) {
           isExpand = true;
           return expandValue;
         }
+        if (_.isPic(name as string)) {
+          isExpand = true;
+          return (<Pic name={ name }></Pic>);
+        }
         const key = _.upperFirst(_.camelCase(name));
         if (_.hasIn(icons, key)) {
-          return safeGet<DefineComponent>(icons, key);
+          // @ts-ignore
+          const value = icons[key];
+          return value as DefineComponent;
         }
         return create(name);
       }
@@ -93,20 +99,22 @@ export default defineComponent({
       }
       const style = {};
       if (props.color) {
-        _.set(style, "color", props.color);
+        Object.assign(style, { color: props.color });
       }
       if (props.size) {
         const value = _.isNumber(props.size) ? `${props.size}px` : props.size;
         if (isExpand) {
           className.push("items-center");
-          _.set(style, "--eci-icon-size", value);
-          _.set(style, "--icon-size", value);
-          _.set(style, "height", "var(--icon-size)");
+          Object.assign(style, { 
+            "--icon-size": value,
+            "--eci-icon-size": value,
+            "height": "var(--icon-size)"
+          });
         } else {
-          _.set(style, "fontSize", value);
+          Object.assign(style, { "fontSize": value });
         }
       }
-      return createElement(content as VNode, { style, "class": className }, slots);
+      return createElement(content as VNode, { style, "class": className });
     }
   }
 });
