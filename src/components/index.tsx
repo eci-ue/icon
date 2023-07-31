@@ -10,6 +10,10 @@ import { IconExpand } from "./expand";
 import * as icons from "@ant-design/icons-vue";
 import { DefineComponent, defineComponent, h as createElement, PropType } from "vue";
 
+import { StepBackwardFilled } from "@ant-design/icons-vue";
+
+{/* <step-backward-outlined /> */}
+
 import type { Props } from "./props";
 import type { Component, CSSProperties, VNode } from "vue";
 
@@ -79,9 +83,9 @@ export default defineComponent({
           return (<Pic name={ name }></Pic>);
         }
         const key = _.upperFirst(_.camelCase(name));
-        if (_.hasIn(icons, key)) {
-          // @ts-ignore
-          const value = icons[key];
+        // @ts-ignore
+        const value = icons[key];
+        if (value) {
           return value as DefineComponent;
         }
         return create(name);
