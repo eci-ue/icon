@@ -1,6 +1,6 @@
 /**
  * @file 超级 Icon
- * @author theresia@eci.com
+ * @author svon.me@gmail.com
  * @description 组合 IconFont & Ant Design Icon 图标
  */
 

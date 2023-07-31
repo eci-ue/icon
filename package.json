@@ -1,7 +1,7 @@
 {
   "name": "@ue/icon",
   "private": false,
-  "version": "0.1.5",
+  "version": "0.1.6",
   "type": "module",
   "license": "MIT",
   "main": "./dist/icon.js",
@@ -25,7 +25,8 @@
     "url": "git+https://github.com/eci-ue/icon.git"
   },
   "dependencies": {
-    "@ant-design/icons-vue": "^6.1.0"
+    "@ant-design/icons-vue": "^6.1.0",
+    "ant-design-vue": "^4.0.0"
   },
   "devDependencies": {
     "@types/node": "^18.8.4",

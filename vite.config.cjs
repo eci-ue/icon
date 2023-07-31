@@ -26,10 +26,8 @@ export default defineConfig({
     manifest: false,
     rollupOptions: {
       external: [
-        /^lodash/i,
         /^vue/i,
-        /^@ue/i,
-        /@ant-design/i,
+        /ant-design/i,
       ],
       output: {
         inlineDynamicImports: true
