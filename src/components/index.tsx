@@ -10,10 +10,6 @@ import { IconExpand } from "./expand";
 import * as icons from "@ant-design/icons-vue";
 import { DefineComponent, defineComponent, h as createElement, PropType } from "vue";
 
-import { StepBackwardFilled } from "@ant-design/icons-vue";
-
-{/* <step-backward-outlined /> */}
-
 import type { Props } from "./props";
 import type { Component, CSSProperties, VNode } from "vue";
 
